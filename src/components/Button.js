@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+// PropTypes used to define the types of data that are expected to be passed to a React component as props. library is used to specify the expected data type of each prop
 
 const Button = ({ color, text, onClick }) => {
 

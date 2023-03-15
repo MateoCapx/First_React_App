@@ -6,9 +6,10 @@ import Addtask from "./components/AddTask";
 
 const App = () => {
   // Array of Task we are using to render on page
-  const[showAddTask, setShowAddTask] = useState(false)
+  const [showAddTask, setShowAddTask] = useState(false)
 
   const [tasks, setTasks] = useState([
+
     {
       id: 1,
       text: ' Docotrs Apponiment',
@@ -54,10 +55,14 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header />
+      <Header
+        onAdd={() => setShowAddTask(!showAddTask)}
+        showAdd={showAddTask}
+      />
+      {/* if showAddTask is TRUE then display add task form - && means short  verizon or terniery*/}
+
       {showAddTask && <Addtask onAdd={addTask} />}
-      {tasks.length > 0 ? <Task tasks={tasks}
-        onDelete={deleteTask} onToggle={toggleReminder} /> : ('No Tasks to Show')
+      {tasks.length > 0 ? <Task tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : ('No Tasks to Show')
       }
 
     </div>
